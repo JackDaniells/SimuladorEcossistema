@@ -1,0 +1,16 @@
+*************************************************************
+*******	Levantamento de Requisitos Trabalho DSO**************
+*************************************************************
+
+	* Jogo que simula um ecossistema, onde a principio,
+ irão existir lobos e coelhos, onde a cada rodada, os animais
+podem se mover pela tela, se reproduzir e se alimentar.
+
+	* Coelhos comem planta, que ira aparecer aleatóriamente
+nos quadros da tela, e os lobos comem os coelhos.
+
+	* Coelhos se reproduzem se encontrarem um parceiro 
+de sexo oposto, em idade fértil, Lobos se reproduzem da mesma forma,
+porem com probabilidades menores de fecundação.
+ 
+
