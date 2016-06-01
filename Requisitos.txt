@@ -12,5 +12,5 @@ nos quadros da tela, e os lobos comem os coelhos.
 	* Coelhos se reproduzem se encontrarem um parceiro 
 de sexo oposto, em idade fértil, Lobos se reproduzem da mesma forma,
 porem com probabilidades menores de fecundação.
- 
+	 
 
