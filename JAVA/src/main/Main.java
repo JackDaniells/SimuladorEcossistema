@@ -18,14 +18,20 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		
-		JFrame j = new JFrame();
+		/*JFrame j = new JFrame();
 		JPanel quadro = new JPanel();
 		j.setContentPane(quadro);
 		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		j.setSize(500, 500);
 		j.setTitle("Game");
-		j.setVisible(true);
+		j.setVisible(true);*/
+		
+		new View();
+		
+		
+		
+		
 		
 		
 		Lobo lobo = new Lobo("AuAu", "Masculino");
