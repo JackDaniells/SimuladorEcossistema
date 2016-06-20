@@ -3,6 +3,8 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -12,6 +14,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.table.TableCellRenderer;
+
+
+import model.Coelho;
+import model.Lobo;
 
 public class Tabela {
 	
@@ -32,17 +38,40 @@ public class Tabela {
 	  
 	        JScrollPane tableContainer = new JScrollPane(table);
 	        
-	        JTextArea textArea = new JTextArea("");
+	        final JTextArea textArea = new JTextArea("");
+	        JButton criar = new JButton("Criar");
+	        
 	        
 	        panel.add(tableContainer, BorderLayout.CENTER);
 	        botoes.add(textArea, BorderLayout.CENTER);
-	        botoes.add(new JButton("Criar"), BorderLayout.SOUTH);
+	        botoes.add(criar, BorderLayout.SOUTH);
 	        frame.add(panel, BorderLayout.CENTER);
 	        frame.add(botoes, BorderLayout.SOUTH);
 	        frame.pack();
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.setVisible(true);
+	        criar.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					int numeroAnimais = Integer.parseInt(textArea.getText());
+					System.out.println(numeroAnimais);
+					for(int i = 0; i<=numeroAnimais; i++){
+						Lobo lobo = new Lobo("Lobo " + i, "Masculino");
+						lobo.toString();
+						
+						Coelho coelho = new Coelho("Coelho " + i, "Masculino");
+						coelho.toString();
+						
+						System.out.println("");
+					}
+					
+					
+				}
+			});
 	    }
+	    
+	    
 }
 
 /*package view;
