@@ -57,7 +57,7 @@ public class Tabela {
 				public void actionPerformed(ActionEvent e) {
 					int numeroAnimais = Integer.parseInt(textArea.getText());
 					System.out.println(numeroAnimais);
-					for(int i = 0; i<=numeroAnimais; i++){
+					for(int i = 1; i<=numeroAnimais; i++){
 						Lobo lobo = new Lobo("Lobo " + i, "Masculino");
 						lobo.toString();
 						table.setValueAt("L", 0, i);
