@@ -28,11 +28,7 @@ public class Main {
 		j.setVisible(true);*/
 		
 		new View();
-		
-		
-		
-		
-		
+
 		
 		Lobo lobo = new Lobo("AuAu", "Masculino");
 		lobo.toString();

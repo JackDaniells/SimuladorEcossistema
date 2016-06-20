@@ -18,7 +18,7 @@ public class View {
 	        panel.setLayout(new BorderLayout());
 
 	        JTable table = new JTable(20,25);
-	        table.setBackground(Color.BLUE.darker().darker().darker().darker().darker());
+	        table.setBackground(Color.BLUE.darker().darker());
 	        table.setGridColor(Color.BLUE.darker().darker());
 	        table.setEnabled(false);
 	       // table.setShowGrid(false);
