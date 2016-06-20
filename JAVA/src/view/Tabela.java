@@ -1,14 +1,16 @@
-<<<<<<< HEAD:JAVA/src/view/Tabela.java
 package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.table.TableCellRenderer;
 
 public class Tabela {
@@ -17,8 +19,9 @@ public class Tabela {
 	        JFrame frame = new JFrame("Game");
 
 	        JPanel panel = new JPanel();
+	        JPanel botoes = new JPanel();
 	        panel.setLayout(new BorderLayout());
-
+	        botoes.setLayout(new BorderLayout());
 	        JTable table = new JTable(20,25);
 	        table.setBackground(Color.BLUE.darker().darker().darker().darker().darker());
 	        table.setGridColor(Color.BLUE.darker().darker());
@@ -29,18 +32,20 @@ public class Tabela {
 	  
 	        JScrollPane tableContainer = new JScrollPane(table);
 	        
-	        JFrame caixaBotoes = new JFrame();
-	        caixaBotoes.add(new JButton("Iniciar"));
+	        JTextArea textArea = new JTextArea("");
 	        
 	        panel.add(tableContainer, BorderLayout.CENTER);
-	        frame.getContentPane().add(panel);
+	        botoes.add(textArea, BorderLayout.CENTER);
+	        botoes.add(new JButton("Criar"), BorderLayout.SOUTH);
+	        frame.add(panel, BorderLayout.CENTER);
+	        frame.add(botoes, BorderLayout.SOUTH);
 	        frame.pack();
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.setVisible(true);
 	    }
 }
-=======
-package view;
+
+/*package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -77,5 +82,4 @@ public class View {
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.setVisible(true);
 	    }
-}
->>>>>>> da2b31439924003124ef20b362dfba831159a1bb:JAVA/src/view/View.java
+}*/
