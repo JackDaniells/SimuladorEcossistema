@@ -28,9 +28,10 @@ public class Tabela {
 	        JPanel botoes = new JPanel();
 	        panel.setLayout(new BorderLayout());
 	        botoes.setLayout(new BorderLayout());
-	        JTable table = new JTable(20,25);
+	        final JTable table = new JTable(20,25);
 	        table.setBackground(Color.BLUE.darker().darker().darker().darker().darker());
 	        table.setGridColor(Color.BLUE.darker().darker());
+	        table.setForeground(Color.WHITE);
 	        
 	        table.setEnabled(false);	// Impede de selecionar e editar campos
 	       // table.setShowGrid(false);	//Mostra as linhas e colunas da tabela
@@ -59,9 +60,11 @@ public class Tabela {
 					for(int i = 0; i<=numeroAnimais; i++){
 						Lobo lobo = new Lobo("Lobo " + i, "Masculino");
 						lobo.toString();
+						table.setValueAt("L", 0, i);
 						
 						Coelho coelho = new Coelho("Coelho " + i, "Masculino");
 						coelho.toString();
+						table.setValueAt("C", 19,24-i);
 						
 						System.out.println("");
 					}
