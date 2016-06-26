@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
 
 import control.Botoes;
 
@@ -25,6 +26,7 @@ public class Tela extends JFrame {
     private JPanel panel = new JPanel();
     private JPanel botoes = new JPanel();
     public static JTable table = new JTable(20,25);
+    
     private JScrollPane tableContainer;
 
     Botoes actionListener= new Botoes();
@@ -53,6 +55,7 @@ public class Tela extends JFrame {
       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       this.setVisible(true);
       criar.addActionListener(actionListener);
+  
       
 	}//Tela
 	
