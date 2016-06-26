@@ -31,6 +31,8 @@ public class Botoes implements ActionListener {
 				Tela.table.setValueAt(	new Gato("Tom", SelecionaSexo.sexo(), xGato,yGato)
 				, xGato, yGato);
 				
+				new Motor(1);
+				
 				
 			}//actionPerformed
 }//class Botoes

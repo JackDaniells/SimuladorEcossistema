@@ -22,14 +22,13 @@ public class Animal {
 		int valor = r.nextInt(2);
 		switch(valor){
 		
-		
-		case 1:
+		case 0:
 			if(posX < 20){
-			posX ++;
+			posX++;
 			}
 		break;
 		
-		case 2:
+		case 1:
 			if(posX > 0){
 			posX--;
 			}
@@ -48,13 +47,13 @@ public class Animal {
 		int valor = r.nextInt(2);
 		switch(valor){
 		
-		case 1:
+		case 0:
 			if(posY < 25){
 			posY++;
 			}
 		break;
 		
-		case 2:
+		case 1:
 			if(posY > 0){
 			posY--;
 			}
