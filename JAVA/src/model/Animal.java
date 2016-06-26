@@ -10,10 +10,9 @@ public class Animal {
 
 	
 	
-	public Animal(String nome, String sexo, String esp, int px, int py){
+	public Animal(String nome, String sexo, String esp){
 		this.nome = nome;
 		this.sexo = sexo;
-		this.fome = fome;
 		this.tipo= esp;
 	};
 	
@@ -23,7 +22,7 @@ public class Animal {
 		switch(valor){
 		
 		case 0:
-			if(posX < 20){
+			if(posX < 19){
 			posX++;
 			}
 		break;
@@ -48,7 +47,7 @@ public class Animal {
 		switch(valor){
 		
 		case 0:
-			if(posY < 25){
+			if(posY < 24){
 			posY++;
 			}
 		break;

@@ -5,6 +5,6 @@ public class Rato extends Animal{
 	
 	
 	public Rato(String nome, String sexo, int posicaoX, int posicaoY) {
-		super(nome, sexo, especie, posicaoX, posicaoY);
+		super(nome, sexo, especie);
 	}
 }
