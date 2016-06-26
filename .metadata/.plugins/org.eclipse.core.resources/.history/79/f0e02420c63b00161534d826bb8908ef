@@ -1,0 +1,40 @@
+package control;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+
+import javax.swing.table.DefaultTableModel;
+
+import view.Tela;
+
+import model.Gato;
+import model.Rato;
+
+public class Botoes implements ActionListener {
+
+	Random random = new Random();
+	static int xGato;
+	static int yGato;
+
+			public void actionPerformed(ActionEvent e) {
+				int numeroAnimais = Integer.parseInt(Tela.retornaTextoInput());
+				System.out.println(numeroAnimais);
+				for (int i = 1; i <= numeroAnimais; i++) {
+					((DefaultTableModel) Tela.table.getModel()).setNumRows(0);
+					Tela.table.updateUI();
+					int x = random.nextInt(20);
+					int y = random.nextInt(25);
+								
+					Tela.table.setValueAt(new Rato("Rato " + i, SelecionaSexo.sexo(), x, y),
+							x,y);
+				}//for
+				
+				xGato = random.nextInt(20);
+				yGato = random.nextInt(25);
+				Tela.table.setValueAt(	new Gato("Tom", SelecionaSexo.sexo(), xGato,yGato)
+				, xGato, yGato);
+				
+				
+			}//actionPerformed
+}//class Botoes

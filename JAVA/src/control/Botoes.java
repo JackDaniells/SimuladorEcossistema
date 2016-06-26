@@ -43,6 +43,13 @@ public class Botoes implements ActionListener {
 				, xGato, yGato);
 
 				
+<<<<<<< HEAD
 			}
 
+=======
+				new Motor(1);
+				
+				
+			}//actionPerformed
+>>>>>>> origin/master
 }//class Botoes
