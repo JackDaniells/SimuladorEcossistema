@@ -4,10 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-
 import view.Tela;
 
 import model.Gato;
@@ -18,37 +14,25 @@ public class Botoes implements ActionListener {
 	Random random = new Random();
 	static int xGato;
 	static int yGato;
-	
-	/*private void limparTabela() {
-		while (Tela.table.getRowCount() > 0) {
-			DefaultTableModel dm = (DefaultTableModel) Tela.table.getModel();
-			dm.removeRow(0);
-		}
-	}*/
+
 			public void actionPerformed(ActionEvent e) {
 				int numeroAnimais = Integer.parseInt(Tela.retornaTextoInput());
 				System.out.println(numeroAnimais);
-				
 				for (int i = 1; i <= numeroAnimais; i++) {
-					
 					int x = random.nextInt(20);
 					int y = random.nextInt(25);
 								
 					Tela.table.setValueAt(new Rato("Rato " + i, SelecionaSexo.sexo(), x, y),
 							x,y);
 				}//for
+				
 				xGato = random.nextInt(20);
 				yGato = random.nextInt(25);
 				Tela.table.setValueAt(	new Gato("Tom", SelecionaSexo.sexo(), xGato,yGato)
 				, xGato, yGato);
-
 				
-
-		
-
-				new Motor(1);
+				new Motor();
 				
 				
 			}//actionPerformed
-
 }//class Botoes
