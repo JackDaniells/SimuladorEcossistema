@@ -33,7 +33,7 @@ public class Animal {
 			}
 		break;
 		
-		default:
+		case 2:
 			break;
 		
 		}
@@ -58,7 +58,7 @@ public class Animal {
 			}
 		break;
 		
-		default:
+		case 2:
 			break;
 		
 		}

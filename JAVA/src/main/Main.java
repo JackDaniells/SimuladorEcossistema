@@ -1,7 +1,5 @@
 
 package main;
-
-import control.Motor;
 import view.Tela;
 
 
