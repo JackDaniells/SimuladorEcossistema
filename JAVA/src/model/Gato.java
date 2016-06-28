@@ -5,7 +5,7 @@ public class Gato extends Animal{
 	private int fome = 0;
 	private int idade = 0;
 
-	public Gato(String nome, String sexo, int posicaoX, int posicaoY) {
+	public Gato(String nome, String sexo) {
 		super(nome, sexo, especie);
 	}
 

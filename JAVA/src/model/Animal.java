@@ -1,12 +1,17 @@
 package model;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.util.Random;
 
-public class Animal {
+public class Animal extends Component {
 	private String nome;
 	private String sexo;	
 	private int fome;
 	private String tipo;
+	
+	private String ratoIcon = "🐭"; 
+	private String gatoIcon = "🐱";
 
 	
 	
@@ -59,7 +64,7 @@ public class Animal {
 		break;
 		
 		case 2:
-			break;
+		break;
 		
 		}
 		return posY;
@@ -67,10 +72,9 @@ public class Animal {
 
 	public String toString() {
 		if(tipo.equals("Rato")){
-			return "R";
+			return ratoIcon;
 		}else{
-			return "G";
+			return gatoIcon;
 		}
 	};
-		
 }

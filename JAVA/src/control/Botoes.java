@@ -1,5 +1,6 @@
 package control;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -14,22 +15,33 @@ public class Botoes implements ActionListener {
 	Random random = new Random();
 	static int xGato;
 	static int yGato;
+	static int[] xRato = new int[500];
+	static int[] yRato = new int[500];
+	static int numeroAnimais;
 
 			public void actionPerformed(ActionEvent e) {
-				int numeroAnimais = Integer.parseInt(Tela.retornaTextoInput());
+				numeroAnimais = Integer.parseInt(Tela.retornaTextoInput());
 				System.out.println(numeroAnimais);
-				for (int i = 1; i <= numeroAnimais; i++) {
+				for (int contador = 0; contador < numeroAnimais; contador++) {
 					int x = random.nextInt(20);
 					int y = random.nextInt(25);
+					xRato[contador] = x;
+					System.out.println("x ="+xRato[contador]);
+					yRato[contador] = y;
+					System.out.println("y = "+yRato[contador]);
 								
-					Tela.table.setValueAt(new Rato("Rato " + i, SelecionaSexo.sexo(), x, y),
+					Tela.table.setValueAt(new Rato("Rato " + contador, "Dolly"),
 							x,y);
 				}//for
 				
 				xGato = random.nextInt(20);
 				yGato = random.nextInt(25);
-				Tela.table.setValueAt(	new Gato("Tom", SelecionaSexo.sexo(), xGato,yGato)
-				, xGato, yGato);
+				Gato gato = new Gato("Tom","Puresa");
+				gato.setBackground(Color.RED);
+				System.out.println(gato.getBackground());
+				
+				Tela.table.setValueAt(gato,
+						xGato, yGato);
 				
 				new Motor();
 				
