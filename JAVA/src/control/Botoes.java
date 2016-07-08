@@ -26,9 +26,7 @@ public class Botoes implements ActionListener {
 					int x = random.nextInt(20);
 					int y = random.nextInt(25);
 					xRato[contador] = x;
-					System.out.println("x ="+xRato[contador]);
 					yRato[contador] = y;
-					System.out.println("y = "+yRato[contador]);
 								
 					Tela.table.setValueAt(new Rato("Rato " + contador, "Dolly"),
 							x,y);
@@ -38,7 +36,6 @@ public class Botoes implements ActionListener {
 				yGato = random.nextInt(25);
 				Gato gato = new Gato("Tom","Puresa");
 				gato.setBackground(Color.RED);
-				System.out.println(gato.getBackground());
 				
 				Tela.table.setValueAt(gato,
 						xGato, yGato);

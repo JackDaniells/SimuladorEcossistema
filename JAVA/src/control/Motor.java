@@ -13,13 +13,14 @@ public class Motor {
 
 	Timer timer;
 	int tempo = 1000;
+	boolean paraTimer = false;
 
 	public Motor() {
 
 		// pega a posição atual do gato
 		Gato gato = (Gato) Tela.table.getValueAt(Botoes.xGato, Botoes.yGato);
 		
-		
+		//Movimentar ratos
 		for(int i = 0; i< Botoes.numeroAnimais;i++){
 			if( Tela.table.getValueAt(Botoes.xRato[i], Botoes.yRato[i])!= null &&
 					 Tela.table.getValueAt(Botoes.xRato[i], Botoes.yRato[i]).toString()!="🐱"){
@@ -30,6 +31,8 @@ public class Motor {
 			//System.out.println(Botoes.xRato[i]);
 			Botoes.yRato[i] = rato.movimentarY(Botoes.yRato[i]);
 			//System.out.println(Botoes.xRato[i]);
+			
+			//gato come o rato
 			if(Botoes.xRato[i]==Botoes.xGato && Botoes.yRato[i]== Botoes.yGato){
 				Tela.table.setValueAt(null,Botoes.xRato[i], Botoes.yRato[i]);
 				System.out.println("O gato comeu um rato");
@@ -76,21 +79,20 @@ public class Motor {
 		{
 			System.out.println("O Gato Morreu de fome");
 			Tela.table.setValueAt("✝", Botoes.xGato, Botoes.yGato);
+			paraTimer = true;
 		
 		} 
 		else if (gato.getIdade() == 30) 
 		{
 			System.out.println("O Gato Morreu de velhice");
 			Tela.table.setValueAt("✝", Botoes.xGato, Botoes.yGato);
-			
+			paraTimer = true;
 		}
 		else
 		{
 			Tela.table.setValueAt(gato, Botoes.xGato, Botoes.yGato);// seta nova
 																	// posição
 																	// do gato
-			System.out.println("Posição Gato: X=" + Botoes.xGato + " Y="
-					+ Botoes.yGato);
 		}
 
 	}
@@ -99,7 +101,10 @@ public class Motor {
 		public void run() {
 			// System.out.println("Time's up!");
 			timer.cancel(); // Terminate the timer thread
-			new Motor();
+			
+			if(!paraTimer){
+				new Motor();
+			}
 		}
 	}
 
