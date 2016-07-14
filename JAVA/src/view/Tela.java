@@ -15,17 +15,14 @@ import control.Botoes;
 
 public class Tela extends JFrame {
 	
-	
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	public static int tamX = 20;
+	public static int tamY = 25;
 	
 	private static JTextArea textArea = new JTextArea("");
     private JButton criar = new JButton("Criar");
     private JPanel panel = new JPanel();
     private JPanel botoes = new JPanel();
-    public static JTable table = new JTable(20,25);
+    public static JTable table = new JTable(tamX,tamY);
     
     private JScrollPane tableContainer;
 

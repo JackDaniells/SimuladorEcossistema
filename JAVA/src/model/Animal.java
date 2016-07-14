@@ -1,81 +1,100 @@
 package model;
 
-import java.awt.Color;
-
-import java.awt.Component;
 import java.util.Random;
 
-public class Animal extends Component {
+import view.Tela;
+
+public abstract class Animal{
 	private String nome;
 	private String sexo;	
-	private int fome;
-	private String tipo;
+	protected int fome = 0;
+	protected int idade = 0;
+	protected int posX;
+	protected int posY;
 	
-	private String ratoIcon = "🐭"; 
-	private String gatoIcon = "🐱";
-
+	public static String RATO_ICON = "🐭"; 
+	public static String GATO_ICON = "🐱";
 	
+	private int qtdeFome = 3; 
 	
-	public Animal(String nome, String sexo, String esp){
+	//construtor
+	protected Animal(String nome, String sexo, int x, int y){
 		this.nome = nome;
 		this.sexo = sexo;
-		this.tipo= esp;
+		this.posX = x;
+		this.posY = y;
 	};
+
+	protected void mover(){
+		this.posX += movimentoAleatorio(true, this.posX);
+		this.posY += movimentoAleatorio(false,this.posY);
+	}
 	
-	public int movimentarX(int posX){
-		Random r = new Random();
-		int valor = r.nextInt(2);
-		switch(valor){
-		
-		case 0:
-			if(posX < 19){
-			posX++;
-			}
-		break;
-		
-		case 1:
-			if(posX > 0){
-			posX--;
-			}
-		break;
-		
-		case 2:
-			break;
-		
-		}
+	protected void update(){
+		this.idade++;
+		this.fome+=qtdeFome;
+	}
+	
+	public void zeraFome(){
+		this.fome = 0;
+	}
+	
+	public int getPosX(){
 		return posX;
 	}
 	
+	public int getPosY(){
+		return posY;
+	}
 	
-	public int movimentarY(int posY){
-		Random r = new Random();
-		int valor = r.nextInt(2);
-		switch(valor){
+	public void setaPosicao(int x, int y){
+		this.posX = x;
+		this.posY = y;
+	}
+	
+	public int getIdade(){
+		return idade;
+	}
+	
+	public String getSexo(){
+		return sexo;
+	}
+	
+	protected boolean morreDeVelhice(int idadeFinal){
+		if (idade == idadeFinal)
+		{
+			return true;
+		} else
+			return false;
+	}
+	
 		
+	private int movimentoAleatorio(boolean flagX, int valor){
+		Random r = new Random();
+		int rand = r.nextInt(3);
+		int retorno = 0 ;
+		switch(rand){
 		case 0:
-			if(posY < 24){
-			posY++;
-			}
+			retorno = 0;
 		break;
 		
 		case 1:
-			if(posY > 0){
-			posY--;
+			if(flagX){
+				if(valor<Tela.tamX-1) retorno = 1;
+				else retorno = -1;
+			}else{
+				if(valor<Tela.tamY-1) retorno = 1;
+				else retorno = -1;
 			}
+				
 		break;
 		
 		case 2:
+			if(valor!=0) retorno = -1;
+			else retorno = 1;
 		break;
 		
 		}
-		return posY;
+		return retorno;
 	}
-
-	public String toString() {
-		if(tipo.equals("Rato")){
-			return ratoIcon;
-		}else{
-			return gatoIcon;
-		}
-	};
 }

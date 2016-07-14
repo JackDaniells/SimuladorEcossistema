@@ -1,28 +1,51 @@
 package model;
 
+import view.Tela;
+import control.Ecossistema;
+import control.Motor;
+
+
 public class Gato extends Animal{
-	static String especie = "Gato";
-	private int fome = 0;
-	private int idade = 0;
-
-	public Gato(String nome, String sexo) {
-		super(nome, sexo, especie);
+	
+	private int idadeFinal = 50;
+	
+	public Gato(String nome, String sexo, int x, int y) {
+		super(nome, sexo,x,y);
 	}
-
-	public int getFome() {
-		return fome;
+	
+	protected boolean morreDeFome(){
+		if (fome == 100)
+		{
+			return true;
+		} else
+			return false;
 	}
-
-	public void setFome(int fome) {
-		this.fome = fome;
+	
+	@Override
+	public void update(){
+		super.update();
+		
+		mover();
+		
+		if(morreDeVelhice(idadeFinal) || morreDeFome()) {
+			Motor.paraTimer = true;
+			GATO_ICON = "✝";
+			//Tela.table.setValueAt("✝", posX, posY);
+			System.out.println("O Gato morreu");
+		}
 	}
-
-	public int getIdade() {
-		return idade;
+	
+	@Override
+	protected void mover(){
+		if(fome<25){
+			super.mover();
+		}else{
+			Ecossistema.CacaRato();
+			
+		}
 	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
+	
+	public String toString(){
+		return GATO_ICON;
 	}
-
 }
