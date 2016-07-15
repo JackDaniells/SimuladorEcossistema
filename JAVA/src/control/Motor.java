@@ -4,6 +4,8 @@ package control;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import botoes.BtnCriar;
+
 public class Motor {
 
 	Timer timer;
@@ -26,6 +28,15 @@ public class Motor {
 			
 			if(!paraTimer && !pausaTimer){
 				new Motor();
+			}else{
+				System.out.println("__________________________");
+				System.out.println("Estatísticas da simulação:");
+				System.out.println("Ratos inicio: " + BtnCriar.numeroRatos);
+				System.out.println("Ratos atualmente: " + Ecossistema.arrayRato.size());
+				System.out.println("Ratos Comidos pelo gato: " + Ecossistema.ratosComidos);
+				System.out.println("Idade do gato: " + Ecossistema.gato.getIdade());
+
+				System.out.println("__________________________");
 			}
 		}
 	}

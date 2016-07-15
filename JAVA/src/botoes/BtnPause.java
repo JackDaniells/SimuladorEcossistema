@@ -28,6 +28,5 @@ public class BtnPause implements ActionListener {
 					JButton j = (JButton) e.getSource();
 					j.setText("Play");
 				}
-				System.out.println(Motor.pausaTimer);
 			}//actionPerformed
 }//class Botoes

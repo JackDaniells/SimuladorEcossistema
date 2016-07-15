@@ -71,8 +71,14 @@ public class Tela extends JFrame {
       
 	}//Tela
 	
-	public static String retornaTextoInput(){
-		return textArea.getText();
+	public static int retornaTextoInput(){
+		try{
+			return Integer.parseInt(textArea.getText());
+		}catch(Exception e){
+			System.out.println("Insira somente Numeros entre 1 e 255");
+			return 0;
+		}
+			
 	}
 	
 	public static void limpaTabela(){

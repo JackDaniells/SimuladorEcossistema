@@ -1,6 +1,7 @@
 package control;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import model.Gato;
 import model.Rato;
@@ -10,6 +11,8 @@ public class Ecossistema {
 
 	public static ArrayList<Rato> arrayRato = new ArrayList<Rato>();
 	public static Gato gato;
+	public static int ratosComidos = 0;
+	Random r = new Random();
 
 	public Ecossistema() {
 		atualizaRato();
@@ -31,6 +34,7 @@ public class Ecossistema {
 					gato.getPosY());
 			this.arrayRato.remove(rato);
 			gato.zeraFome();
+			ratosComidos++;
 			System.out.println("O gato comeu um rato");
 			Tela.table.setValueAt(gato, gato.getPosX(), gato.getPosY());
 		}
@@ -38,7 +42,7 @@ public class Ecossistema {
 	}
 
 	private void atualizaRato() {
-		if(arrayRato.size()==0){
+		if (arrayRato.size() == 0) {
 			Motor.paraTimer = true;
 			return;
 		}
@@ -57,6 +61,7 @@ public class Ecossistema {
 				this.arrayRato.remove(rato);
 				Tela.table.setValueAt(null, xIni, yIni);
 				this.gato.zeraFome();
+				ratosComidos++;
 				System.out.println("O gato comeu um rato");
 			} else {
 				Rato rato2 = (Rato) Tela.table.getValueAt(rato.getPosX(),
@@ -72,20 +77,25 @@ public class Ecossistema {
 		if ((r1.getIdade() >= Rato.idadeMinReprod)
 				&& (r2.getIdade() >= Rato.idadeMinReprod)) {
 			if (r1.getSexo() != r2.getSexo()) {
-				Rato filho = new Rato("Ratinho", s.sexo(), 
-						r1.getPosX()-1<0?r1.getPosX()+1:r1.getPosX()-1,
-						r2.getPosY());
-				Tela.table.setValueAt(filho, filho.getPosX(), filho.getPosY());
-				arrayRato.add(filho);
-				System.out.println("Nasceu um novo rato");
+				int prob = r.nextInt(100);
+				if (prob >= 75) {
+					Rato filho = new Rato("Ratinho", s.sexo(),
+							r1.getPosX() - 1 < 0 ? r1.getPosX() + 1
+									: r1.getPosX() - 1, r2.getPosY());
+
+					Tela.table.setValueAt(filho, filho.getPosX(),
+							filho.getPosY());
+					arrayRato.add(filho);
+					System.out.println("Nasceu um novo rato");
+				}
 			}
 		}
 	}
 
 	public static void CacaRato() {
 		// Limpa a posição atual do gato
-		//System.out.println("Gato esta caçando!!");
-		if(arrayRato.size()==0){
+		// System.out.println("Gato esta caçando!!");
+		if (arrayRato.size() == 0) {
 			Motor.paraTimer = true;
 			return;
 		}
