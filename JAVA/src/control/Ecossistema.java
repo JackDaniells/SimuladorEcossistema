@@ -38,7 +38,10 @@ public class Ecossistema {
 	}
 
 	private void atualizaRato() {
-
+		if(arrayRato.size()==0){
+			Motor.paraTimer = true;
+			return;
+		}
 		for (int i = 0; i < this.arrayRato.size(); i++) {
 			Rato rato = this.arrayRato.get(i);
 			int xIni = rato.getPosX();
@@ -69,7 +72,8 @@ public class Ecossistema {
 		if ((r1.getIdade() >= Rato.idadeMinReprod)
 				&& (r2.getIdade() >= Rato.idadeMinReprod)) {
 			if (r1.getSexo() != r2.getSexo()) {
-				Rato filho = new Rato("Ratinho", s.sexo(), r1.getPosX() - 1,
+				Rato filho = new Rato("Ratinho", s.sexo(), 
+						r1.getPosX()-1<0?r1.getPosX()+1:r1.getPosX()-1,
 						r2.getPosY());
 				Tela.table.setValueAt(filho, filho.getPosX(), filho.getPosY());
 				arrayRato.add(filho);
@@ -81,6 +85,10 @@ public class Ecossistema {
 	public static void CacaRato() {
 		// Limpa a posição atual do gato
 		//System.out.println("Gato esta caçando!!");
+		if(arrayRato.size()==0){
+			Motor.paraTimer = true;
+			return;
+		}
 
 		int xG = gato.getPosX();
 		int yG = gato.getPosY();

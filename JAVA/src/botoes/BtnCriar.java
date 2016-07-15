@@ -1,14 +1,21 @@
-package control;
+package botoes;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Random;
+
+import javax.swing.JButton;
+
+import control.Ecossistema;
+import control.Motor;
+import control.SelecionaSexo;
 
 import model.Gato;
 import model.Rato;
 import view.Tela;
 
-public class Botoes implements ActionListener {
+public class BtnCriar implements ActionListener {
 
 	Random random = new Random();
 	static int numeroRatos;
@@ -30,6 +37,8 @@ public class Botoes implements ActionListener {
 				Ecossistema.gato = new Gato("Tom",s.sexo(), r.nextInt(Tela.tamX), r.nextInt(Tela.tamY));
 				
 				Tela.table.setValueAt(Ecossistema.gato, Ecossistema.gato.getPosX(), Ecossistema.gato.getPosY());
+				
+				((JButton) e.getSource()).setEnabled(false);
 				
 				new Motor();
 				
