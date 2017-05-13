@@ -1,7 +1,9 @@
-# TrabalhoFinalDSO
-  Trabalho final da matéria de Desenvolvimento de Sistemas Orientado a Objeto, 
-do curso de Sistemas de Informação, executado pelos alunos Matheus Laureano e Daniel Henrique Kock e desenvolvido 
-integralmente na linguagem de programação Java.
+# Simulador de Ecossistema
+ Implementação de um simulador de ecossistema em Java. 
+Projeto executado na disciplina de Desenvolvimento de Sistemas Orientados a Objetos,
+da segunda fase do curso de Sistemas de Informação da 
+Universidade Federal de Santa Catarina.
+
   O Projeto consiste num simulador de ecossistema, que consiste em uma matriz, que corresponde ao ecossistema 
 do simulador, e é onde todas as iteraçoes ocorrem, e 2 seres vivos simulados, o gato e o rato.
 
